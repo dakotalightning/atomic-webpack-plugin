@@ -1,0 +1,34 @@
+{
+  "name": "atomic-webpack-plugin",
+  "version": "0.0.1",
+  "description": "A webpack plugin for use with the intention to build the index file for components based on the Atomic Design methodology.",
+  "license": "MIT",
+  "main": "atomic-plugin.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dakotalightning/atomic-webpack-plugin.git"
+  },
+  "author": {
+    "name": "Dakota Lightning",
+    "email": "im@koda.io"
+  },
+  "bugs": {
+    "url": "https://github.com/dakotalightning/atomic-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/dakotalightning/atomic-webpack-plugin#readme",
+  "engines": {
+    "node": ">= 12.20.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "webpack": "^5.1.0"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "atomic",
+    "arc"
+  ]
+}
