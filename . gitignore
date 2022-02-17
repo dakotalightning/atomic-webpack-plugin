@@ -1,0 +1,15 @@
+logs
+*.log
+npm-debug.log*
+
+/coverage
+/dist
+/node_modules
+/test/fixtures/\[special\$directory\]
+/test/outputs
+/test/bundled
+
+.DS_Store
+Thumbs.db
+.idea
+.vscode
