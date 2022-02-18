@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "A webpack plugin for use with the intention to build the index file for components based on the Atomic Design methodology.",
   "license": "MIT",
-  "main": "atomic-plugin.js",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dakotalightning/atomic-webpack-plugin.git"
@@ -20,7 +21,25 @@
     "node": ">= 12.20.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build -- -w",
+    "clean": "del-cli dist types",
+    "prebuild": "npm run clean",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir types --rootDir src && prettier \"types/**/*.ts\" --write",
+    "build:code": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+    "build": "npm-run-all -p \"build:**\"",
+    "commitlint": "commitlint --from=master",
+    "security": "npm audit --production",
+    "lint:prettier": "prettier --list-different .",
+    "lint:js": "eslint --cache .",
+    "lint:types": "tsc --pretty --noEmit",
+    "lint": "npm-run-all -l -p \"lint:**\"",
+    "test:only": "cross-env NODE_ENV=test jest",
+    "test:watch": "npm run test:only -- --watch",
+    "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+    "pretest": "npm run lint",
+    "test": "npm run test:coverage",
+    "prepare": "husky install && npm run build",
+    "release": "standard-version"
   },
   "peerDependencies": {
     "webpack": "^5.1.0"
@@ -30,5 +49,39 @@
     "plugin",
     "atomic",
     "arc"
-  ]
+  ],
+  "dependencies": {
+    "schema-utils": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/preset-env": "^7.16.7",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/glob-parent": "^5.1.1",
+    "@types/normalize-path": "^3.0.0",
+    "@types/serialize-javascript": "^5.0.2",
+    "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+    "babel-jest": "^27.4.5",
+    "cross-env": "^7.0.3",
+    "del": "^6.0.0",
+    "del-cli": "^4.0.1",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "file-loader": "^6.2.0",
+    "husky": "^7.0.1",
+    "is-gzip": "^2.0.0",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.3.3",
+    "memfs": "^3.4.1",
+    "mkdirp": "^1.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "standard-version": "^9.3.1",
+    "typescript": "^4.5.5",
+    "webpack": "^5.68.0"
+  }
 }
