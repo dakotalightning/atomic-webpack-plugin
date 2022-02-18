@@ -1,6 +1,7 @@
 logs
 *.log
 npm-debug.log*
+.eslintcache
 
 /coverage
 /dist

@@ -21,29 +21,33 @@
     "node": ">= 12.20.0"
   },
   "scripts": {
-    "start": "npm run build -- -w",
+    "start": "yarn run build -- -w",
     "clean": "del-cli dist types",
-    "prebuild": "npm run clean",
+    "prebuild": "yarn run clean",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir types --rootDir src && prettier \"types/**/*.ts\" --write",
     "build:code": "cross-env NODE_ENV=production babel src -d dist --copy-files",
     "build": "npm-run-all -p \"build:**\"",
     "commitlint": "commitlint --from=master",
-    "security": "npm audit --production",
+    "security": "yarn audit --production",
     "lint:prettier": "prettier --list-different .",
     "lint:js": "eslint --cache .",
     "lint:types": "tsc --pretty --noEmit",
     "lint": "npm-run-all -l -p \"lint:**\"",
     "test:only": "cross-env NODE_ENV=test jest",
-    "test:watch": "npm run test:only -- --watch",
-    "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
-    "pretest": "npm run lint",
-    "test": "npm run test:coverage",
-    "prepare": "husky install && npm run build",
+    "test:watch": "yarn run test:only -- --watch",
+    "test:coverage": "yarn run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+    "pretest": "yarn run lint",
+    "test": "yarn run test:coverage",
+    "prepare": "husky install && yarn run build",
     "release": "standard-version"
   },
   "peerDependencies": {
     "webpack": "^5.1.0"
   },
+  "files": [
+    "dist",
+    "types"
+  ],
   "keywords": [
     "webpack",
     "plugin",
