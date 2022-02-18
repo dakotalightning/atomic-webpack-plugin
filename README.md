@@ -2,6 +2,10 @@
 
 ---
 
+<a href='https://www.npmjs.com/package/atomic-webpack-plugin' style='margin: 0 0.2rem;' />
+  <img src='https://img.shields.io/npm/v/atomic-webpack-plugin' alt='npm version' height='18'>
+</a>
+
 # atomic-webpack-plugin
 
 A webpack plugin for use with the intention to build the index file for components based on the [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) methodology.
