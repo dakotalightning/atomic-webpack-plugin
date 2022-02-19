@@ -2,9 +2,11 @@
 
 ---
 
-<a href='https://www.npmjs.com/package/atomic-webpack-plugin' style='margin: 0 0.2rem;' />
-  <img src='https://img.shields.io/npm/v/atomic-webpack-plugin' alt='npm version' height='18'>
-</a>
+[![npm][npm]][npm-url]
+[![node][node]][node-url]
+[![tests][tests]][tests-url]
+[![cover][cover]][cover-url]
+[![size][size]][size-url]
 
 # atomic-webpack-plugin
 
@@ -139,3 +141,14 @@ src/
 ## License
 
 MIT
+
+[npm]: https://img.shields.io/npm/v/atomic-webpack-plugin.svg
+[npm-url]: https://npmjs.com/package/atomic-webpack-plugin
+[node]: https://img.shields.io/node/v/atomic-webpack-plugin.svg
+[node-url]: https://nodejs.org
+[tests]: https://github.com/dakotalightning/atomic-webpack-plugin/workflows/atomic-webpack-plugin/badge.svg
+[tests-url]: https://github.com/dakotalightning/atomic-webpack-plugin/actions
+[cover]: https://codecov.io/gh/dakotalightning/atomic-webpack-plugin/branch/master/graph/badge.svg
+[cover-url]: https://codecov.io/gh/dakotalightning/atomic-webpack-plugin
+[size]: https://packagephobia.now.sh/badge?p=atomic-webpack-plugin
+[size-url]: https://packagephobia.now.sh/result?p=atomic-webpack-plugin
