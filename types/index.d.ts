@@ -30,45 +30,6 @@ declare namespace AtomicWebpackPlugin {
     AtomicOptions,
   };
 }
-/** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
-/** @typedef {import("webpack").Compiler} Compiler */
-/** @typedef {import("webpack").Compilation} Compilation */
-/** @typedef {import("webpack").WebpackError} WebpackError */
-/** @typedef {import("webpack").Asset} Asset */
-/** @typedef {ReturnType<Compilation["getLogger"]>} WebpackLogger */
-/** @typedef {ReturnType<Compilation["getCache"]>} CacheFacade */
-/** @typedef {ReturnType<ReturnType<Compilation["getCache"]>["getLazyHashedEtag"]>} Etag */
-/** @typedef {ReturnType<Compilation["fileSystemInfo"]["mergeSnapshots"]>} Snapshot */
-/**
- * @typedef {boolean} Force
- */
-/**
- * @typedef {string} Context
- */
-/**
- * @typedef {Record<string, boolean>} Files
- */
-/**
- * @typedef { (changes: boolean, keys: string[], instance: Atomic) => void } AtomicCheckCallback
- */
-/**
- * @typedef { (keys: string[], instance: Atomic) => void } AtomicRunCallback
- */
-/**
- * @typedef {Object} CleanKeys
- * @property {string} key
- * @property {string} componentName
- * @property {string} from
- */
-/**
- * @typedef {Object} AtomicOptions
- * @property {string} base
- * @property {string} output
- * @property {string} header
- * @property {RegExp} regularExpression
- * @property {WebpackLogger} logger
- * @property {Context} context
- */
 declare class Atomic {
   /**
    * @public
