@@ -1,6 +1,6 @@
 {
   "name": "atomic-webpack-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A webpack plugin for use with the intention to build the index file for components based on the Atomic Design methodology.",
   "license": "MIT",
   "main": "dist/index.js",
