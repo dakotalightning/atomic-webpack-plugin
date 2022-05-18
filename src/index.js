@@ -67,12 +67,12 @@ const equalsIgnoreOrder = (a, b) => {
   if (a.length !== b.length) return false;
   const uniqueValues = new Set([...a, ...b]);
   for (const v of uniqueValues) {
-    const aCount = a.filter(e => e === v).length;
-    const bCount = b.filter(e => e === v).length;
+    const aCount = a.filter((e) => e === v).length;
+    const bCount = b.filter((e) => e === v).length;
     if (aCount !== bCount) return false;
   }
   return true;
-}
+};
 
 class Atomic {
   /**
@@ -228,7 +228,7 @@ class Atomic {
     const keys = Atomic.cleanKeys(this.keys);
     let changes = false;
     this.logger.info("...Checking keys");
-    keys.forEach(k => {
+    keys.forEach((k) => {
       try {
         fs.accessSync(k.key, fs.constants.F_OK);
         this.logger.debug("\u2713", k.from);
@@ -243,12 +243,16 @@ class Atomic {
       this.logger.info("...Checking files");
 
       this.files = {};
-      this.readDirectory(resolvedBase, this.scanSubDirectories, this.regularExpression);
+      this.readDirectory(
+        resolvedBase,
+        this.scanSubDirectories,
+        this.regularExpression
+      );
       const fileKeys = Object.keys(this.files);
 
       const equal = equalsIgnoreOrder(fileKeys, this.keys);
       if (!equal) {
-        changes = true
+        changes = true;
       }
     }
 
