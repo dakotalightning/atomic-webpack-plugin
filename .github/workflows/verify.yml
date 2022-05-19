@@ -8,11 +8,9 @@ name: Verify
 
 on:
   push:
-    branches:
-      - "dependabot/npm_and_yarn/**"
+    branches: [ main ]
   pull_request:
-    branches:
-      - "dependabot/npm_and_yarn/**"
+    branches: [ main ]
 
 jobs:
   test:
@@ -23,14 +21,16 @@ jobs:
       run:
         working-directory: ./
 
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+    strategy:
+      matrix:
+        node-version: [14.x, 15.x, 16.x]
 
-      - name: Setup Node.js 16.13.x
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.x
+          node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
       - name: Install Dependencies
