@@ -1,0 +1,40 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "npm"
+    labels:
+      - "npm"
+      - "dependencies"
+    ignore:
+      - dependency-name: "jest"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "ts-jest"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "@storybook/*"
+      - dependency-name: "@enjoytech/*"
+      - dependency-name: "tailwindcss"
+        versions:
+          - ^3
+      - dependency-name: "postcss"
+        versions:
+          - ^8
+      - dependency-name: "@types/react*"
+        versions:
+          - ^17
+      - dependency-name: "react*"
+        versions:
+          - ^17
+      - dependency-name: "css-loader"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "sass-loader"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "style-loader"
+        update-types: [ "version-update:semver-major" ]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
